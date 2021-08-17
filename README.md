@@ -1,37 +1,44 @@
-MYSQL database functions [db.php] made by ekk v1.0
+MYSQL database functions [db.php](https://github.com/Erik-KK/db-php/edit/main/db.php) made by ekk v1.0
 
-**functions list**
-    ```dbConnect() [-] connect to database using config
-    dbDisconnect() [-] disconnect from database
-    dbQuery($query) [-] make query to database
-    dbGetLines($table, $column, $value) [-] get lines array by column = value
-    dbFilter($table, $filters) [-]  get lines array by filter (columns = values)
-    dbGetLine($table, $column, $value) [-] get 1 line by column = value
-    dbAddLine($table, $columns, $values) [-] create line
-    dbDeleteLine($table, $column, $value) [-] delete line
-    dbUpdateCells($table, $column, $value, $columns, $values) [-] update cells by column = value
-    dbGetMaxID($table) [-] get max id in table
-    dbJack($data, $splitter) [-] Jack the ripper :D (split the string and removes emptiness)```
+# Functions list
+|function | description |
+|:------------------------------------------------------------------------------|:---------------------------------------------------------|
+| dbConnect() | connect to database using [config.php](https://github.com/Erik-KK/db-php/blob/main/config.php) |
+| dbDisconnect() | disconnect from database |
+| [dbQuery($query)](#dbQuery) | make query to database |
+| [dbGetLines($table, $column, $value)](#dbGetLines) | get lines array by column = value |
+| [dbFilter($table, $filters)](#dbFilter) |  get lines array by filter (columns = values) |
+| [dbGetLine($table, $column, $value)](#dbGetLine) | get 1 line by column = value |
+| [dbAddLine($table, $columns, $values)](#dbAddLine) | create line |
+| [dbDeleteLine($table, $column, $value)](#dbDeleteLine) | delete line |
+| [dbUpdateCells($table, $column, $value, $columns, $values)](#dbUpdateCells) | update cells by column = value |
+| [dbGetMaxID($table)](#dbGetMaxID) | get max id in table |
+| [dbJack($data, $splitter)](#dbJack) | Jack the ripper :D (split the string and removes emptiness) |
+____
 
+### {database) example
 
-**{database} example**
-    {table}
-    `id` | `name` | `password`
-    1	 |  Ivan  |  pass1
-    2	 |  Egor  |  pass2
-    3	 |  Dima  |  pass3
-    4	 |  Dima  |  pass4
-    5	 |  Dima  |  pass4
-     ..  |  ....  |  ....
+**{table}**
+| id | name | password |
+|:-:|:----:|:-----:|
+| 1 | Ivan | pass1 |
+| 2 | Egor | pass2 |
+| 3 | Dima | pass3 |
+| 4 | Dima | pass4 |
+| 5 | Dima | pass4 |
+| . | .... | ..... |
 
+____
 
-**dbQuery($query)**
+## dbQuery
     + require $query [SQL code]
 	- return [MYSQL-object]
 	* example: dbQuery('SELECT * FROM `database`');
 
+____
 
-**dbGetLines($table, $column, $value)**
+## dbGetLines
+
     + require:
         ++ $table  [text/table name],
         ++ $column [text/column name where search],
@@ -56,8 +63,10 @@ MYSQL database functions [db.php] made by ekk v1.0
             ]
         ]
 
+____
 
-**dbFilter($table, $filters)**
+## dbFilter
+
 	+ require:
         ++ $table 	[text/table name],
         ++ $filters [Array('field' => 'value')]
@@ -80,8 +89,9 @@ MYSQL database functions [db.php] made by ekk v1.0
             ]
         ]
 
+____
 
-**dbGetLine($table, $column, $value)**
+## dbGetLine
 	+ require:
             ++ $table  [text/table name],
             ++ $column [text/column name where search],
@@ -97,10 +107,11 @@ MYSQL database functions [db.php] made by ekk v1.0
             'password'  => 'pass4'
         ]
 
+____
 
-**dbAddLine($table, $columns, $values)**
+## dbAddLine
 	+ require:
-        ++ $table	[text/table name],
+        ++ $table   [text/table name],
         ++ $columns [Array('column1', 'column2',)],
         ++ $values  [Array('value1', 'value2',)]
 		
@@ -110,10 +121,11 @@ MYSQL database functions [db.php] made by ekk v1.0
         *call* dbAddLine('table', ['name', 'password'], ['Artem', 'pass6']);
         *return* [~nut~]
 
+____
 
-**dbDeleteLine($table, $column, $value)**
+## dbDeleteLine
 	+ require:
-        ++ $table	[text/table name],
+        ++ $table   [text/table name],
         ++ $column  [text/column name where search],
         ++ $value   [text(int)/value wich search in column]
 		
@@ -123,8 +135,9 @@ MYSQL database functions [db.php] made by ekk v1.0
         *call* dbDeleteLine('table', 'id', 6);
         *return* [~nut~]
 
+____
 
-**dbUpdateCells($table, $column, $value, $columns, $values)**
+## dbUpdateCells
 	+ require:
         ++ $table	[text/table name],
         ++ $column  [text/column name where search],
@@ -138,8 +151,9 @@ MYSQL database functions [db.php] made by ekk v1.0
         *call* dbUpdateCells('table', 'id', '5', ['name', 'password'], ['Iva', 'pass123']);
         *return* [~nut~]
 
+____
 
-**dbGetMaxID($table)**
+## dbGetMaxID
 	+ require:
         $table [text/table name]
     
@@ -150,7 +164,7 @@ MYSQL database functions [db.php] made by ekk v1.0
         *return* 5
 
 
-**dbJack($data, $splitter)**
+## dbJack
 	+ require:
         $data 	  [text/original string],
         $splitter [text/splitter symb]
