@@ -1,4 +1,4 @@
-MYSQL database functions [db.php](https://github.com/Erik-KK/db-php/edit/main/db.php) made by ekk v1.0
+MYSQL database functions [db.php](https://github.com/Erik-KK/db-php/blob/main/db.php) made by ekk v1.0
 
 # Functions list
 |function | description |
