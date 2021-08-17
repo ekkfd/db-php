@@ -1,7 +1,7 @@
 MYSQL database functions [db.php] made by ekk v1.0
 
 **functions list**
-    dbConnect() [-] connect to database using config
+    ```dbConnect() [-] connect to database using config
     dbDisconnect() [-] disconnect from database
     dbQuery($query) [-] make query to database
     dbGetLines($table, $column, $value) [-] get lines array by column = value
@@ -11,7 +11,7 @@ MYSQL database functions [db.php] made by ekk v1.0
     dbDeleteLine($table, $column, $value) [-] delete line
     dbUpdateCells($table, $column, $value, $columns, $values) [-] update cells by column = value
     dbGetMaxID($table) [-] get max id in table
-    dbJack($data, $splitter) [-] Jack the ripper :D (split the string and removes emptiness)
+    dbJack($data, $splitter) [-] Jack the ripper :D (split the string and removes emptiness)```
 
 
 **{database} example**
