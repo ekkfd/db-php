@@ -33,7 +33,9 @@ ____
 ## dbQuery
     + require $query [SQL code]
 	- return [MYSQL-object]
-	* example: dbQuery('SELECT * FROM `database`');
+	* example:
+	    *call* dbQuery('SELECT * FROM `table` WHERE `id` = 1');
+	    *return* Object([current_field] => 0 [field_count] => 3 [lengths] => [num_rows] => 1 [type] => 0)
 
 ____
 
@@ -45,7 +47,7 @@ ____
         ++ $value  [text(int)/value wich search in column]
             +++ $column == '*' and $value == '*' to select all from table
 
-    - return [Array(Array('field' => 'value'))] or `false` if 0 rows returned
+    - return [Array(Array('field' => 'value'))] or bool(false) if 0 rows returned
 
     * example:
         *call* dbGetLines('table', 'name', 'Dima');
@@ -71,7 +73,7 @@ ____
         ++ $table 	[text/table name],
         ++ $filters [Array('field' => 'value')]
     
-    - return [Array(Array('field' => 'value'))] or `false` if 0 rows returned
+    - return [Array(Array('field' => 'value'))] or bool(false) if 0 rows returned
 
     * example:
         *call* dbFilter('table', Array('name' => 'Dima', 'password' => 'pass4'));
@@ -96,7 +98,7 @@ ____
             ++ $table  [text/table name],
             ++ $column [text/column name where search],
             ++ $value  [text(int)/value wich search in column]
-    - return [Array('field' => 'value')] or `false` if rows != 1 returned
+    - return [Array('field' => 'value')] or bool(false) if rows != 1 returned
 
     * example:
         *call* dbFilter('table', 'id', 4);
@@ -115,11 +117,11 @@ ____
         ++ $columns [Array('column1', 'column2',)],
         ++ $values  [Array('value1', 'value2',)]
 		
-    - return [~nut~]
+    - return true/false
 
     * example:
         *call* dbAddLine('table', ['name', 'password'], ['Artem', 'pass6']);
-        *return* [~nut~]
+        *return* true
 
 ____
 
@@ -129,11 +131,11 @@ ____
         ++ $column  [text/column name where search],
         ++ $value   [text(int)/value wich search in column]
 		
-    - return [~nut~]
+    - return true/false
 
     * example:
         *call* dbDeleteLine('table', 'id', 6);
-        *return* [~nut~]
+        *return* false
 
 ____
 
@@ -142,14 +144,13 @@ ____
         ++ $table	[text/table name],
         ++ $column  [text/column name where search],
         ++ $value   [text(int)/value wich search in column],
-        ++ $columns [Array('column1', 'column2',)],
-        ++ $values  [Array('value1', 'value2',)]
+        ++ $values  [Array('column1' => 'value1', 'column2' => 'value2',)]
 		
-    - return [~nut~]
+    - return true/false
 
     * example:
-        *call* dbUpdateCells('table', 'id', '5', ['name', 'password'], ['Iva', 'pass123']);
-        *return* [~nut~]
+        *call* dbUpdateCells('table', 'id', '5', ['name' => 'Iva', 'password' => 'pass123']);
+        *return* true
 
 ____
 
