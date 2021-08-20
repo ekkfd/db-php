@@ -1,4 +1,4 @@
-MYSQL database functions [db.php](https://github.com/Erik-KK/db-php/blob/main/db.php) made by ekk v1.0
+MYSQL database functions [db.php](https://github.com/Erik-KK/db-php/blob/main/db.php) made by ekk v1.1
 
 # Functions list
 |function | description |
@@ -11,7 +11,7 @@ MYSQL database functions [db.php](https://github.com/Erik-KK/db-php/blob/main/db
 | [dbGetLine($table, $column, $value)](#dbGetLine) | get 1 line by column = value |
 | [dbAddLine($table, $columns, $values)](#dbAddLine) | create line |
 | [dbDeleteLine($table, $column, $value)](#dbDeleteLine) | delete line |
-| [dbUpdateCells($table, $column, $value, $columns, $values)](#dbUpdateCells) | update cells by column = value |
+| [dbUpdateCells($table, $column, $value, $values)](#dbUpdateCells) | update cells by column = value |
 | [dbGetMaxID($table)](#dbGetMaxID) | get max id in table |
 | [dbJack($data, $splitter)](#dbJack) | Jack the ripper :D (split the string and removes emptiness) |
 ____
@@ -60,6 +60,11 @@ ____
             ],
             [
                 'id'   		=> '4',
+                'name' 		=> 'Dima',
+                'password'  => 'pass4'
+            ],
+	    [
+                'id'   		=> '5',
                 'name' 		=> 'Dima',
                 'password'  => 'pass4'
             ]
