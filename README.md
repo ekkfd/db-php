@@ -45,6 +45,7 @@ ____
         ++ $table  [text/table name],
         ++ $column [text/column name where search],
         ++ $value  [text(int)/value wich search in column]
+	++ $order [text/column name for order] {optional}
             +++ $column == '*' and $value == '*' to select all from table
 
     - return [Array(Array('field' => 'value'))] or bool(false) if 0 rows returned
