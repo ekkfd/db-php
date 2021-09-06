@@ -32,10 +32,12 @@
 	
 	
 	// -- [lines by column = value] -- //
-	function dbGetLines($table, $column, $value) {
-		if($column == '*' && $value == '*') $q = dbQuery("SELECT * FROM `".$table."`");
-		else $q = dbQuery("SELECT * FROM `".$table."` WHERE `".$column."` = '".$value."'");
-		if(mysqli_num_rows($q)) {
+	function dbGetLines($table, $column, $value, $order=null) {
+		$req = "SELECT * FROM `".$table."`";
+		if($column != '*' && $value != '*') $req .= " WHERE `".$column."` = '".$value."'";
+		if ($order) $req .= " ORDER BY `".$order."`";
+		$q = dbQuery($req);
+		if($q) {
 			$rows = array();
 			while($row = mysqli_fetch_assoc($q)) array_push($rows, $row);
 			$ret = $rows;
