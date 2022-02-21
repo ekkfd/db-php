@@ -69,8 +69,8 @@
 	// -- [get 1 line by column = value] -- //
 	function dbGetLine($table, $column, $value) {
 		$q = dbQuery("SELECT * FROM `".$table."` WHERE `".$column."` = '".$value."'");
+        $ret = false;
 		if(mysqli_num_rows($q) == 1) $ret = mysqli_fetch_assoc($q);
-		else $ret = false;
 		return $ret;
 	}
 	
